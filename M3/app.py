@@ -28,8 +28,18 @@ while not salir:
         if opc == 1:
             login = False
             while not login:
-                username = input("Username: ")
-                password = input("Password: ")
+                print("\n" * 6 + ">> SISTEMA NADIR [Modulo: Seguridad/Acceso]".center(ancho))
+                print("-" * ancho)
+                print("(Escribe 'exit' para cancelar)".center(ancho))
+                print("\n    Iniciando secuencia de identificacion...")
+
+                username = input("    Username: ")
+                
+                if username.lower() == "exit":
+                    login = True
+                    break
+
+                password = input("    Password: ")
 
                 resultado = checkUserbdd(username, password)
 
@@ -40,41 +50,52 @@ while not salir:
                     login = True
                     flg_01 = True
                 elif resultado == 0:
-                    print("[!] User does not exist.")
-                    input("Enter to continue")
+                    print("    [!] User does not exist.")
+                    input("    Enter to continue")
                 else:
-                    print("[!] Incorrect password.")
-                    input("Enter to continue")
+                    print("    [!] Incorrect password.")
+                    input("    Enter to continue")
+
+                print("-" * ancho)
 
         # CREATE USER
         elif opc == 2:
-            user_valido = False
+            registro = False
 
-            while not user_valido:
-                username = input("Username: ")
+            while not registro:
+                print("\n" * 6 + ">> SISTEMA NADIR [Modulo: Gestion/Registro]".center(ancho))
+                print("-" * ancho)
+                print("(Escribe 'exit' para cancelar)".center(ancho))
+                print("\n    Registrando nueva cuenta de usuario...")
+
+                username = input("    Username: ")
+
+                if username.lower() == "exit":
+                    registro = True
+                    break
 
                 if checkUser(username):
                     if userExits(username):
-                        print("[!] There is already a user named {}".format(username))
-                        input("Enter to continue")
+                        print("    [!] There is already a user named {}".format(username))
+                        input("    Enter to continue")
                     else:
-                        user_valido = True
+                        registro = True
             
-            if user_valido:
+            if registro:
                 password_valida = False
 
                 while not password_valida:
-                    password = input("Password: ")
+                    password = input("    Password: ")
                     if checkPassword(password):
                         if createUserBD(username, password):
-                            print("User created succesfully! Loggin in...")
+                            print("    [OK] User created succesfully! Loggin in...")
                             user_session = username
                             flg_00 = False
                             flg_01 = True
                             password_valida = True
-                            input("Enter to continue")
+                            input("    Enter to continue")
                     else:
-                        input("Enter to continue")
+                        input("    Enter to continue")
 
         # EXIT
         elif opc == 5:
@@ -83,8 +104,9 @@ while not salir:
     
     # MENU 01: JUEGO (SESION INICIADA)
     while flg_01:
-        mostrar_logo()
-        print(("User: {}".format(user_session)).center(ancho))
+        mostrar_logo()  
+        print((">> SESION INICIADA: {}".format(user_session)).center(ancho))
+        print("-" * ancho)
 
         diccionario_opciones = {"l": 1, "p": 2, "e": 5}
         excepciones = ["l", "p", "e", "-1"]

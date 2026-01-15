@@ -23,7 +23,7 @@ def mostrar_logo():
         "   \\__\\/ \\__\\/ \\__\\/\\__\\/ \\____/_/\\________\\/ \\_\\/ \\_\\/"
     ]
 
-    print(("\n" * 2) + ("*" * ancho))
+    print(("\n" * 6) + ("*" * ancho))
 
     for linea in nadir:
         print(linea.center(ancho))
