@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <title>Usuaris - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo del joc">
+                <span class="logo-text">Nadir</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
+                <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
+                <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html" class="active"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="usuaris-container">
+        <h1>Tria la teva història</h1>
+        <p class="subtitol">Selecciona un usuari i comença la teva aventura personalitzada</p>
+
+        <!-- GRID D'USUARIS -->
+        <section class="usuaris-grid">
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Protocòl Epsilon] Usuari 1</h3>
+                <p class="usuari-rol">El Enginyer</p>
+                <p class="usuari-descripcio">Reparacions, sistemes elèctrics i accés tècnic</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Protocòl Epsilon] Usuari 2</h3>
+                <p class="usuari-rol">El Mèdic</p>
+                <p class="usuari-descripcio">Curació, anàlisi biòleg i detecció d'anomalies</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Protocòl Epsilon] Usuari 3</h3>
+                <p class="usuari-rol">El soldat</p>
+                <p class="usuari-descripcio">Combat, defensa, seguretat</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Protocòl Epsilon] Usuari 4</h3>
+                <p class="usuari-rol">El Comandant</p>
+                <p class="usuari-descripcio">Equilibrat: tècnicm mèdic i combat medis</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Curtain Call: Zero] Usuari 1</h3>
+                <p class="usuari-rol">L'Actor</p>
+                <p class="usuari-descripcio">Capacitat de fingir emocions i enganyar als personatges</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Curtain Call: Zero] Usuari 2</h3>
+                <p class="usuari-rol">La Violinista</p>
+                <p class="usuari-descripcio">Oït absolut i capaç de detectar trampes amb el soroll</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+            <div class="usuari-card">
+                <div class="usuari-avatar">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                <h3>[Curtain Call: Zero] Usuari 3</h3>
+                <p class="usuari-rol">L'Escenògraf</p>
+                <p class="usuari-descripcio">Coneix els secrets del teatre i els mecanismes ocults</p>
+                <button class="btn-seleccionar">Seleccionar</button>
+            </div>
+
+        <div class="info-adicional">
+            <div class="info-box">
+                <span class="material-symbols-outlined">info</span>
+                <p>Cada usuari ofereix una experiència única amb diàlegs, missions i finals diferents segons les seves característiques i habilitats.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2025 Nadir - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

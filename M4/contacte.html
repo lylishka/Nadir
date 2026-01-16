@@ -1,52 +1,160 @@
 <!DOCTYPE html>
-<html lang="ca">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="stylesheet" href="estils.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-        <title>Contacte</title>
-    </head>
-    <body>
-        <input type="checkbox" id="menu-toggle">
-        <nav class="topnav">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/img/nadir_logo.png">
-                </a>
-            </div>
-            <label for="menu-toggle" class="menu-icon"><span class="material-symbols-outlined">menu</span></label>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <title>Contacte - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Galeria/nadir_logo.png" alt="nadir_logo.png">
+                <span class="logo-text">[NOM JOC]</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
             <ul class="menu">
-                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Home</a></li>
-                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instrucciones</a></li>
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
                 <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
-                <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
-                <li><a href="nosotros.html"><span class="material-symbols-outlined">domain</span>About Us</a></li>
-                <li><a href="ususaris_sistemes.html"><span class="material-symbols-outlined">groups</span>Users</a></li>
+                <li><a href="contacte.html" class="active"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
             </ul>
         </nav>
-        Contenido de la pàgina
-        <footer>
-            <div class="footer-contingut">
-                <div class="social-links">
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">close</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">photo_camera</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">facebook</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">music_note</span>
-                    </a>
+    </header>
+
+    <main class="contacte-container">
+        <h1>Contacta amb nosaltres</h1>
+
+        <div class="contacte-grid">
+            <!-- INFO DE CONTACTE -->
+            <section class="contacte-info">
+                <div class="info-card">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <h3>Adreça</h3>
+                    <p>Carrer Falsa, 123<br>08001 Barcelona, Catalunya</p>
                 </div>
-                <p class="copyright">Copyright &copy; 2025 7 Wonders Duel - Tots els drets reservats.</p>
+
+                <div class="info-card">
+                    <span class="material-symbols-outlined">phone</span>
+                    <h3>Telèfon</h3>
+                    <a href="tel:+34230619915">+34 230 619 915</a>
+                </div>
+
+                <div class="info-card">
+                    <span class="material-symbols-outlined">mail</span>
+                    <h3>Email</h3>
+                    <a href="mailto:aventura9@ieticloudpro.ieti.cat">aventura9@ieticloudpro.ieti.cat</a>
+                </div>
+
+                <!-- MAPA DE GOOGLE MAPS -->
+                <div class="mapa-container">
+                    <h3>On som</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.4503421470896!2d2.1686470156746547!3d41.38705097926505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f8f8f8f8f8%3A0x1f8f8f8f8f8f8f8f!2sBarcelona%2C%20Spain!5e0!3m2!1sen!2ses!4v1234567890123!5m2!1sen!2ses" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- FORMULARI -->
+            <section class="contacte-form">
+                <h2>Envia'ns un missatge</h2>
+                <form id="formulari-contacte">
+                    <div class="form-group">
+                        <label for="nom">Nom complet *</label>
+                        <input 
+                            type="text" 
+                            id="nom" 
+                            name="nom" 
+                            required
+                            pattern="^[A-Za-zÀ-ÿ\s]{2,50}$"
+                            title="El nom ha de tenir entre 2 i 50 caràcters (només lletres i espais)">
+                        <span class="error-message">El nom ha de tenir entre 2 i 50 caràcters</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefon">Telèfon *</label>
+                        <input 
+                            type="tel" 
+                            id="telefon" 
+                            name="telefon" 
+                            required
+                            pattern="^[+]?[0-9]{9,15}$"
+                            title="Format: +34123456789 o 123456789">
+                        <span class="error-message">Format vàlid: +34123456789 o 123456789</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correu electrònic *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Format: exemple@domini.com">
+                        <span class="error-message">Format vàlid: exemple@domini.com</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="missatge">El teu missatge *</label>
+                        <textarea 
+                            id="missatge" 
+                            name="missatge" 
+                            rows="6" 
+                            required
+                            minlength="10"
+                            maxlength="500"
+                            title="El missatge ha de tenir entre 10 i 500 caràcters"></textarea>
+                        <span class="error-message">El missatge ha de tenir entre 10 i 500 caràcters</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span class="material-symbols-outlined">send</span>
+                        Enviar Missatge
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
             </div>
-        </footer>
-    </body>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
 </html>

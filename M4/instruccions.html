@@ -1,52 +1,184 @@
 <!DOCTYPE html>
-<html lang="ca">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="stylesheet" href="estils.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-        <title>Instruccions</title>
-    </head>
-    <body>
-        <input type="checkbox" id="menu-toggle">
-        <nav class="topnav">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/img/nadir_logo.png">
-                </a>
-            </div>
-            <label for="menu-toggle" class="menu-icon"><span class="material-symbols-outlined">menu</span></label>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <title>Instruccions - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo del joc">
+                <span class="logo-text">[NOM JOC]</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
             <ul class="menu">
-                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Home</a></li>
-                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instrucciones</a></li>
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html" class="active"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
                 <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
                 <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
-                <li><a href="nosotros.html"><span class="material-symbols-outlined">domain</span>About Us</a></li>
-                <li><a href="ususaris_sistemes.html"><span class="material-symbols-outlined">groups</span>Users</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
             </ul>
         </nav>
-        Contenido de la pàgina
-        <footer>
-            <div class="footer-contingut">
-                <div class="social-links">
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">close</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">photo_camera</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">facebook</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">music_note</span>
-                    </a>
+    </header>
+
+    <main class="instruccions-container">
+        <h1>Instruccions del Joc</h1>
+
+        <!-- APARTAT INSTRUCCIONS -->
+        <section class="instruccions-section">
+            <h2>Com jugar</h2>
+            <div class="instruccio-grid">
+                <div class="instruccio-item">
+                    <img src="assets/img/captura1.jpg" alt="Pantalla inicial">
+                    <div class="instruccio-text">
+                        <h3>1. Inicia el joc</h3>
+                        <p>Clica al botó "Començar" a la pantalla inicial per iniciar la teva aventura</p>
+                    </div>
                 </div>
-                <p class="copyright">Copyright &copy; 2025 7 Wonders Duel - Tots els drets reservats.</p>
+                <div class="instruccio-item">
+                    <img src="assets/img/captura2.jpg" alt="Selecció de personatge">
+                    <div class="instruccio-text">
+                        <h3>2. Tria el teu personatge</h3>
+                        <p>Selecciona entre diferents protagonistes, cadascun amb habilitats úniques</p>
+                    </div>
+                </div>
+                <div class="instruccio-item">
+                    <img src="assets/img/captura3.jpg" alt="Pantalla de joc">
+                    <div class="instruccio-text">
+                        <h3>3. Pren decisions</h3>
+                        <p>Llegeix les situacions i tria les opcions que més t'agradin</p>
+                    </div>
+                </div>
+                <div class="instruccio-item">
+                    <img src="assets/img/captura4.jpg" alt="Inventari">
+                    <div class="instruccio-text">
+                        <h3>4. Gestiona l'inventari</h3>
+                        <p>Utilitza els objectes que trobes per avançar en la història</p>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </body>
+        </section>
+
+        <!-- MECÀNIQUES DEL JOC -->
+        <section class="mecaniques-section">
+            <h2>Mecàniques del Joc</h2>
+            <div class="mecaniques-list">
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h3>Sistema de decisions ramificades</h3>
+                        <p>Cada elecció té conseqüències que afecten el desenvolupament de la història i els endings possibles</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h3>Inventari d'objectes</h3>
+                        <p>Recol·lecta objectes clau que et permetran superar obstacles i desbloquear noves rutes</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h3>Relacions amb personatges</h3>
+                        <p>Les teves decisions afecten com els NPCs reaccionen davant teu</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h3>Múltiples endings</h3>
+                        <p>Descobreix diferents finals segons les decisions que hagis pres durant la partida</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h3>Sistema de guardats</h3>
+                        <p>Guarda el teu progrés en qualsevol moment i continua des d'on ho vas deixar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TARJETES INTERACTIVES amb MOUSEOVER -->
+        <section class="controls-section">
+            <h2>Controls i Consells</h2>
+            <div class="cards-interactive">
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <h3>Ratolí</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Utilitza el clic esquerre per interactuar amb objectes i personatges. El clic dret obre el menú contextual.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <h3>Teclat</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Utilitza les tecles de fletxa per navegar pels menús. ESC per obrir el menú de pausa. ESPAI per avançar diàlegs.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">save</span>
+                        <h3>Guardats</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>El joc guarda automàticament el progrés. També pots guardar manualment des del menú de pausa.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">tips_and_updates</span>
+                        <h3>Consells</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Explora totes les opcions disponibles. Alguns objectes estan ben amagats. Parla amb tots els personatges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
 </html>

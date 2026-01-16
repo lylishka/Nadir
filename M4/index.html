@@ -1,52 +1,142 @@
 <!DOCTYPE html>
-<html lang="ca">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="stylesheet" href="estils.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-        <title>Nadir</title>
-    </head>
-    <body>
-        <input type="checkbox" id="menu-toggle">
-        <nav class="topnav">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/img/nadir_logo.png">
-                </a>
-            </div>
-            <label for="menu-toggle" class="menu-icon"><span class="material-symbols-outlined">menu</span></label>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <title>Inici - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo del joc">
+                <span class="logo-text">Nadir</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
             <ul class="menu">
-                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Home</a></li>
-                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instrucciones</a></li>
+                <li><a href="index.html" class="active"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
                 <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
                 <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
-                <li><a href="nosotros.html"><span class="material-symbols-outlined">domain</span>About Us</a></li>
-                <li><a href="ususaris_sistemes.html"><span class="material-symbols-outlined">groups</span>Users</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
             </ul>
         </nav>
-        Contenido de la pàgina
-        <footer>
-            <div class="footer-contingut">
-                <div class="social-links">
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">close</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">photo_camera</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">facebook</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon">
-                        <span class="material-symbols-outlined">music_note</span>
-                    </a>
+    </header>
+
+    <!-- HERO DESTACAT -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Benvingut a Nadir</h1>
+            <p class="hero-subtitle">Viu una aventura épica on cada decisió compta</p>
+            <img src="assets/img/hero-imagen.jpg" alt="Imatge principal del joc" class="hero-image">
+            <a href="instruccions.html" class="btn-primary">Comença a Jugar</a>
+        </div>
+    </section>
+
+    <!-- ANIMACIÓ SCROLL - Aventura del joc -->
+    <section class="scroll-animation">
+        <div class="scroll-content" data-scroll>
+            <div class="scroll-item">
+                <div class="scroll-icon">
+                    <span class="material-symbols-outlined">explore</span>
                 </div>
-                <p class="copyright">Copyright &copy; 2025 7 Wonders Duel - Tots els drets reservats.</p>
+                <h3>Explora móns desconeguts</h3>
+                <p>Descobreix territoris inexplorats plens de secrets i perills</p>
             </div>
-        </footer>
-    </body>
+            <div class="scroll-item">
+                <div class="scroll-icon">
+                    <span class="material-symbols-outlined">psychology</span>
+                </div>
+                <h3>Pren decisions crítiques</h3>
+                <p>Cada elecció canviarà el curs de la teva aventura</p>
+            </div>
+            <div class="scroll-item">
+                <div class="scroll-icon">
+                    <span class="material-symbols-outlined">shield</span>
+                </div>
+                <h3>Lluita contra enemics</h3>
+                <p>Enfronta't a criatures llegendàries i enemics poderosos</p>
+            </div>
+            <div class="scroll-item">
+                <div class="scroll-icon">
+                    <span class="material-symbols-outlined">auto_stories</span>
+                </div>
+                <h3>Desbloqueja la història</h3>
+                <p>Revela els misteris d'un món ple de llegendes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANIMACIÓ LOTTIE -->
+    <section class="lottie-section">
+        <div class="lottie-container">
+            <div id="lottie-animation"></div>
+            <h2>Una experiència visual única</h2>
+            <p>Gràfics impressionants que donen vida a la història</p>
+        </div>
+    </section>
+
+    <!-- COM ES JUGA? -->
+    <section class="com-es-juga">
+        <h2>Com es juga?</h2>
+        <div class="mecaniques-grid">
+            <div class="mecanica-card">
+                <span class="material-symbols-outlined">touch_app</span>
+                <h3>Interactua</h3>
+                <p>Clica sobre els objectes i personatges per interactuar</p>
+            </div>
+            <div class="mecanica-card">
+                <span class="material-symbols-outlined">route</span>
+                <h3>Decideix</h3>
+                <p>Tria entre diferents opcions que canviaran la història</p>
+            </div>
+            <div class="mecanica-card">
+                <span class="material-symbols-outlined">inventory</span>
+                <h3>Recol·lecta</h3>
+                <p>Troba objectes i utilitza'ls per resoldre enigmes</p>
+            </div>
+            <div class="mecanica-card">
+                <span class="material-symbols-outlined">emoji_events</span>
+                <h3>Aconsegueix</h3>
+                <p>Desbloqueja endings i aconsegueix totes les medalles</p>
+            </div>
+        </div>
+        <a href="instruccions.html" class="btn-secondary">Veure Instruccions Completes</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2025 [NOM DEL JOC] - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
 </html>
