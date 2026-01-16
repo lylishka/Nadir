@@ -31,7 +31,7 @@ def mostrar_logo():
     print("\n" + ("*" * ancho))
 
 # Textos de los menus
-menu00 = "\n1)Login\n2)Create User\n3)Replay Adventure\n4)Reports\n5)Exit"
+menu00 = "\n1)Login\n2)Create User\n3)Reports\n4)Exit"
 menu01 = "\n1)Logout\n2)Play\n3)Replay Adventure\n4)Reports\n5)Exit"
 
 # CREADOR DE MENUS
@@ -79,12 +79,13 @@ def getOpt(textOpts = "", inputOptText = "", rangeList = [], dictionary = {}, ex
         # Validacion de atajos (diccionario) o excepciones
         if opc in dictionary:
             valida = True
-            resultado = opc
+            resultado = dictionary[opc]
         
-        for ex in exceptions:
-            if str(ex) == opc:
-                valida = True
-                resultado = opc
+        if not valida:
+            for ex in exceptions:
+                if str(ex) == opc:
+                    valida = True
+                    resultado = opc
         
         if valida:
             return resultado
@@ -92,6 +93,21 @@ def getOpt(textOpts = "", inputOptText = "", rangeList = [], dictionary = {}, ex
         else:
             print(espacio + "[!] Option doesn't exist.")
             input(espacio + "Enter to Continue")
+
+def getHeader(text):
+    """
+    Devuelve una cabecera con el texto centrado entre decoraciones.
+    """
+
+    linea_ast = "*" * ancho
+
+    linea_igual = (ancho - len(text)) // 2
+
+    linea_central = "=" * linea_igual + text + "=" * (ancho - linea_igual - len(text))
+
+    header = ("{}\n{}\n{}".format(linea_ast, linea_central, linea_ast))
+
+    print(header)
 
 
 # CONEXIÓN A LA BASE DE DATOS
@@ -105,7 +121,7 @@ def conectar_db():
             host="localhost",
             user="developer",
             password="P@ssw0rd",
-            database="choose_your_story"
+            database="nadir"
         )
         return conexion
     except:
@@ -125,11 +141,11 @@ def getUsers():
     usuarios = {}
 
     if conexion:
-        cursor = conexion.cursor(dictionary=True)
+        cursor = conexion.cursor()  
         cursor.execute("SELECT id_usuario, username, password FROM usuario")
             
-        for row in cursor.fetchall():
-            usuarios[row["username"]] = {"password": row["password"], "idUser": row["id_usuario"]}
+        for fila in cursor:
+            usuarios[fila[1]] = {"password": fila[2], "idUser": fila[0]}
             
         cursor.close()
           

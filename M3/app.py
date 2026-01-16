@@ -2,9 +2,6 @@ from game_logic.engine import *
 from game_logic.engine_game import *
 from game_logic.narrative import *
 
-
-
-
 # FLAGS
 salir = False            # EXIT
 flg_00 = True            # MENU DE INICIO (NO LOGUEADO)
@@ -17,11 +14,11 @@ while not salir:
     while flg_00:
         mostrar_logo()
 
-        diccionario_opciones = {"l": 1, "e": 5}
+        diccionario_opciones = {"l": 1, "e": 4}
         excepciones = ["l", "e", "-1"]
 
         # Opcion del menu principal
-        opc = getOpt(menu00, "Option: ", [1,2,3,4,5], diccionario_opciones, excepciones)
+        opc = getOpt(menu00, "Option: ", [1,2,3,4], diccionario_opciones, excepciones)
             
             
         # LOGIN
@@ -98,7 +95,7 @@ while not salir:
                         input("    Enter to continue")
 
         # EXIT
-        elif opc == 5:
+        elif opc == 4:
             flg_00 = False
             salir = True
     
