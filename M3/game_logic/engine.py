@@ -35,7 +35,7 @@ menu00 = "\n1)Login\n2)Create User\n3)Reports\n4)Exit"
 menu01 = "\n1)Logout\n2)Play\n3)Replay Adventure\n4)Reports\n5)Exit"
 
 # CREADOR DE MENUS
-def getOpt(textOpts = "", inputOptText = "", rangeList = [], dictionary = {}, exceptions = []):
+def getOpt(textOpts= "", inputOptText= "", rangeList= [], dictionary= {}, exceptions= []):
     """
     Gestiona la entrada: centra el menú, valida que la opción esté dentro del rango permitido
     o sea una excepcion o atajos (diccionario).
@@ -44,18 +44,21 @@ def getOpt(textOpts = "", inputOptText = "", rangeList = [], dictionary = {}, ex
     largo = 0
     linea_actual = 0
 
-    # Calculo para centrar el menu
-    for opcion in textOpts:
-        if opcion == "\n":
-            if linea_actual > largo:
-                largo = linea_actual
-            linea_actual = 0
-        else:
-            linea_actual += 1
-    if linea_actual > largo:
-        largo = linea_actual
+    if textOpts == "":
+        margen = 0
+    else:
+        # Calculo para centrar el menu
+        for opcion in textOpts:
+            if opcion == "\n":
+                if linea_actual > largo:
+                    largo = linea_actual
+                linea_actual = 0
+            else:
+                linea_actual += 1
+        if linea_actual > largo:
+            largo = linea_actual
 
-    margen = (ancho - largo) // 2
+        margen = (ancho - largo) // 2
     espacio = " " * margen
 
     menu_centrado = espacio + textOpts.replace("\n", "\n" + espacio)
@@ -109,6 +112,134 @@ def getHeader(text):
 
     print(header)
 
+def formatText(text,lenLine,split):
+    text_format = ""
+    linia_actual = ""
+    palabra_actual = ""
+
+    text = text + " "
+
+    for palabra in range(len(text)):
+        caracter = text[palabra]
+
+        if caracter != " ":
+            palabra_actual += caracter
+        else:
+            if palabra_actual != "":
+                longitud_afegim = len(palabra_actual)
+                if linia_actual != "":
+                    longitud_afegim += 1
+                longitud_afegim += len(palabra_actual)
+
+                if len(linia_actual) + longitud_afegim <= lenLine:
+                    if linia_actual == "":
+                        linia_actual = palabra_actual
+                    else:
+                        linia_actual += " " + palabra_actual
+                else:
+                    if text_format == "":
+                        text_format = linia_actual
+                    else:
+                        text_format += split + linia_actual
+                    linia_actual = palabra_actual  
+                
+                palabra_actual = ""            
+    
+    if linia_actual != "":
+        if text_format == "":
+            text_format = linia_actual
+        else:
+            text_format += split + linia_actual
+    return text_format
+
+def getHeadeForTableFromTuples(t_name_columns,t_size_columns,title=""):
+    ancho_total = 0
+    margen = 2
+    for medida in t_size_columns:
+        ancho_total += medida
+    
+    ancho_total += (len(t_name_columns) - 1) * 2
+
+    if title != "":
+        libre = ancho_total -len(title)
+        lado = libre // 2
+
+        resto_iguales = lado * "="
+        linia_iguals = resto_iguales + title + resto_iguales
+    else:
+        linia_iguals = "=" * ancho_total
+    
+
+    linea_estrellas = "*" * ancho_total
+
+    columnas = ""
+    for i in range(len(t_name_columns)):
+        nombre = t_name_columns[i]
+
+        while len(nombre) < t_size_columns[i]:
+            nombre += " "
+        
+        if columnas == "":
+            columnas = nombre
+        else:
+            for j in range(margen):
+                columnas += " "
+            columnas += nombre
+    
+
+    resultado = linia_iguals + "\n" + columnas + "\n" + linea_estrellas
+
+    return resultado
+
+def getFormatedBodyColumns(tupla_texts,tupla_sizes,margin=0):
+    columnas = []
+    longitud = 0
+
+    for i in range(len(tupla_texts)):
+        columna = formatText(tupla_texts[i], tupla_sizes[i], "\n")
+        
+        if columna != "":
+            columna += "\n"
+        
+        linias = []
+        temp = ""
+        for caracter in columna:
+            if caracter != "\n":
+                temp += caracter
+            else:
+                linias.append(temp)
+                temp = ""
+
+        columnas.append(linias)
+        if len(linias) > longitud:
+            longitud = len(linias)
+    
+    resultado = ""
+    for i in range(longitud):
+        fila = ""
+        for j in range(len(columnas)):
+            if i < len(columnas[j]):
+                text_linia = columnas[j][i]
+            else:
+                text_linia = ""
+            
+            while len(text_linia) < tupla_sizes[j]:
+                text_linia += " "
+            
+            if j < len(columnas) - 1:
+                for n in range(margin):
+                    text_linia += " "
+            
+            fila += text_linia
+        
+        if resultado == "":
+            resultado = fila
+        else:
+            resultado += "\n" + fila
+    
+    return resultado
+
+# def getFormatedTable(queryTable,title=""):
 
 # CONEXIÓN A LA BASE DE DATOS
 
@@ -118,9 +249,10 @@ def conectar_db():
     """
     try:
         conexion = mysql.connector.connect(
-            host="localhost",
-            user="developer",
-            password="P@ssw0rd",
+            host="127.0.0.1",
+            port=3307,
+            user="super",
+            password="1234",
             database="nadir"
         )
         return conexion

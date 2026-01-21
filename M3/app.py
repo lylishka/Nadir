@@ -118,8 +118,36 @@ while not salir:
 
         # PLAY
         if opc == 2:
-            print("Play")
-        
+            adventures = get_adventures_with_chars()
+            print(getFormatedAdventures(adventures))
+
+            opc_adv = getOpt("", "Select Adventure ID (or 0 to go back): ", list(adventures.keys()), {}, ["0"])
+
+            if opc_adv != 0:
+                aventura_elegida = opc_adv
+
+                nombre_aventura = adventures[opc_adv]["Name"]
+
+                todos_personajes = get_characters()
+
+                ids_filtrados = adventures[opc_adv]["characters"]
+                personajes_tabla = {}
+                
+                for id_character in ids_filtrados:
+                    personajes_tabla[id_character] = todos_personajes[id_character]
+
+                print(getFormatedCharacters(personajes_tabla, nombre_aventura))
+
+                character = get_characters
+                
+                opc_pj = getOpt("", "Select Characters ID (or 0 to go back): ", list(character.keys()), {}, ["0"])
+
+                if opc_pj != 0:
+                    get_first_step_adventure()
+                    
+            else:
+                flg_01 = False
+                flg_00 = True
         # EXIT
         if opc == 5:
             flg_01 = False
