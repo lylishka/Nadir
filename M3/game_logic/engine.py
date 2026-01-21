@@ -1,4 +1,3 @@
-from app import user_session
 import mysql.connector
 # python -m pip install mysql-connector-python
 
@@ -240,6 +239,26 @@ def getFormatedBodyColumns(tupla_texts,tupla_sizes,margin=0):
     
     return resultado
 
+def getTableFromDict(tuple_of_keys, weight_of_colums, dict_of_data):
+    """
+    Hace el cuerpo de una tabla a partir de un diccionario de diciconarios 
+    usando las claves y anchos.
+    """
+
+    resultado = ""
+
+    for id_game in dict_of_data:
+        valores = []
+        
+        ids = dict_of_data[id_game]
+
+        texto = [str(id_game)]
+        for key in tuple_of_keys:
+            valor = ids.get(key, "")
+            texto.append(str(valor))
+        
+        fila = getFormatedBodyColumns()
+
 # def getFormatedTable(queryTable,title=""):
 
 # CONEXIÓN A LA BASE DE DATOS
@@ -453,7 +472,7 @@ def getUserIdBySession(user):
     limite = len(nombres)
 
     while i < limite:
-        if nombres[i] == user_session:
+        if nombres[i] == user:
             id_encontrado = ids[i]
         
         i += 1

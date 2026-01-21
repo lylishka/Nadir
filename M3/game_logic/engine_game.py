@@ -1,6 +1,5 @@
 from game_logic.engine import *
 from game_logic.narrative import get_id_bystep_adventure, get_answers_bystep_adventure
-from app import aventura_elegida, personaje_elegido, id_juego_actual, user_session
 
 def get_adventures_with_chars():
     """
@@ -111,7 +110,7 @@ def getIdGames():
 
     lista_ids = ()
 
-    cursor = conexion.cursor
+    cursor = conexion.cursor()
     query = "SELECT id_juego FROM juego"
     cursor.execute(query)
 
@@ -146,7 +145,7 @@ def insertCurrentGame(idGame, idUser, idChar, idAdventure):
 
     cursor = conexion.cursor()
 
-    query = "INSER INTO juego (id_juego, id_aventura, id_personaje, id_usuario) VALUES (%s, %s, %s, %s)"
+    query = "INSERT INTO juego (id_juego, id_aventura, id_personaje, id_usuario) VALUES (%s, %s, %s, %s)"
     datos = (idGame, idAdventure, idChar, idUser)
 
     cursor.execute(query, datos)
@@ -157,6 +156,8 @@ def setIdGame():
     """
     Cordinar la busqueda de IDs y la insercion del nuevo juego.
     """
+
+    from app import user_session, aventura_elegida, personaje_elegido
 
     ids_existentes = getIdGames()
     
@@ -169,7 +170,7 @@ def setIdGame():
 
     id_user = getUserIdBySession(user_session)
 
-    insertCurrentGame(nueva_id, id_user, personaje_elegido,aventura_elegida)
+    insertCurrentGame(nueva_id, id_user, personaje_elegido, aventura_elegida)
 
 def getFormatedAnswers(idAnswer, text, lenLine, leftMargin):
     """
@@ -190,6 +191,8 @@ def replay(choices):
     Reproduce una aventura paso a paso basándose en una tupla.
     """
 
+    from app import aventura_elegida
+
     dic_pasos = get_id_bystep_adventure()
     dic_respuestas = get_answers_bystep_adventure()
 
@@ -205,7 +208,7 @@ def replay(choices):
         getHeader(aventura_elegida)
 
         paso = dic_pasos[id_pregunta]
-        descripcion_paso = paso["Desacription"]
+        descripcion_paso = paso["Description"]
         print("\n" + descripcion_paso.center(ancho))
 
         respuesta = dic_respuestas[(id_opcion_elegida, id_pregunta)]
@@ -213,3 +216,39 @@ def replay(choices):
         print("\n" + getFormatedAnswers(id_opcion_elegida, respuesta_final, 60, 5))
         
         input("\n[ Enter to Continue... ]")
+
+def getReplayAdventures():
+    """
+    Consulta el historial de partidas del usuario actual y devuelve un diccionario de las partidas jugadas.
+    """
+
+    from app import user_session
+
+    id_user = getUserIdBySession(user_session)
+
+    replayAdventures = {}
+    cursor = conexion.cursor()
+
+    query = "SELECT j.id_juego, j.id_usuario, u.username, "
+    query += "j.id_aventura, a.nombre, j.id_personaje, p.nombre "
+    query += "FROM juego j "
+    query += "JOIN usuario u ON j.id_usuario = u.id_usuario "
+    query += "JOIN aventura a ON j.id_aventura = a.id_aventura "
+    query += "JOIN personaje p ON j.id_persoanje = p.id_personaje "
+    query += "WHERE j.id_usuario = " + str(id_user)
+
+    cursor.execute(query)
+
+    for fila in cursor:
+        replayAdventures[fila[0]] = {
+            "idUser": fila[1],
+            "Username": fila[2],
+            "idAventure": fila[3],
+            "Name": fila[4],
+            "idCharacter": fila[5],
+            "CharacterName": fila[6]
+        }
+    
+    cursor.close()
+
+    return  replayAdventures

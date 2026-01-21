@@ -7,6 +7,11 @@ salir = False            # EXIT
 flg_00 = True            # MENU DE INICIO (NO LOGUEADO)
 flg_01 = False           # MENU DE USUARIO (LOGUEADO)
 user_session = ""        # EL USUARIO ACTUAL
+aventura_elegida = 0     # AVENTURA ELEGIDA
+personaje_elegido = 0    # PERSONAJE ELEGIDO
+id_juego_actual = 0      # ID JUEGO ACTUAL
+
+
 
 while not salir:
 
@@ -117,7 +122,7 @@ while not salir:
             user_session = ""
 
         # PLAY
-        if opc == 2:
+        elif opc == 2:
             adventures = get_adventures_with_chars()
             print(getFormatedAdventures(adventures))
 
@@ -138,7 +143,7 @@ while not salir:
 
                 print(getFormatedCharacters(personajes_tabla, nombre_aventura))
 
-                character = get_characters
+                character = get_characters()
                 
                 opc_pj = getOpt("", "Select Characters ID (or 0 to go back): ", list(character.keys()), {}, ["0"])
 
@@ -153,7 +158,37 @@ while not salir:
             else:
                 flg_01 = False
                 flg_00 = True
+        
+        # REPLAY ADVENTURE
+        elif opc == 3:
+            datos = getReplayAdventures()
+
+            if not datos:
+                print("\n" + "[!] No games found to replay.".center(ancho))
+                input("Enter to continue...")
+            else:
+                texto = ("ID", "Username", "Adventure Name", "Character", "Date")
+                anchos = (6, 15, 35, 20)
+                keys_mostrar = ("Username", "Name", "CharacterName")
+
+                print("\n" * 2)
+                cabecera = getHeadeForTableFromTuples(texto, anchos, "YOUR REPLAYS")
+                print(cabecera)
+
+                cuerpo = getTableFromDict(keys_mostrar, anchos, datos)
+                print(cuerpo)
+
+                ids_validas = list(datos.keys())
+                eleccion = getOpt("", "what adventure do you want to repay? (0 Go back): ")
+
+                if eleccion != "0":
+                    print("[ Loading Game {}...]".format(eleccion))
+                     
+                    
+                
+
+
         # EXIT
-        if opc == 5:
+        elif opc == 5:
             flg_01 = False
             salir = True

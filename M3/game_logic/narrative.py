@@ -1,6 +1,5 @@
 from game_logic.engine import *
 from game_logic.engine_game import *
-from app import aventura_elegida, personaje_elegido, id_juego_actual, user_session
 
 import random
 
@@ -33,11 +32,13 @@ def insertCurrentChoice(idGame, actual_id_setp, id_answer):
     Inserta cada elección individual en la tabal de pasos.
     """
 
+    from app import user_session
+
     id_user = getUserIdBySession(user_session)
 
     cursor = conexion.cursor()
 
-    query = "INSER INTO paso (id_juego, id_user, id_paso, id_opcion, id_user) VALUES (%s, %s, %s, %s)"
+    query = "INSERT INTO paso (id_juego, id_user, id_paso, id_opcion) VALUES (%s, %s, %s, %s)"
     datos = (idGame, id_user, actual_id_setp, id_answer)
 
     cursor.execute(query, datos)
@@ -48,6 +49,8 @@ def get_id_bystep_adventure():
     """
     Diccionario de pasos (preguntas) de la aventura seleccionada.
     """
+
+    from app import aventura_elegida
 
     id_by_steps = {}
     query_preguntas = "SELECT id_pregunta, texto FROM pregunta WHERE id_aventura = " + str(aventura_elegida)
@@ -92,6 +95,8 @@ def get_answers_bystep_adventure():
     Diccionario con repsuestas detallas.
     """
 
+    from app import aventura_elegida
+
     idAnswers_ByStep_Adventure = {}
 
     # Query que une opcioness con sus preguntas filtrando por la aventura elegida.
@@ -126,6 +131,8 @@ def playStep(id_pregunta, dic_pasos, dic_respuestas, id_juego_actual):
     """
     Gestiona la visualización y la selección aleatoria de opciones.
     """
+
+    from app import personaje_elegido
 
     paso = dic_pasos[id_pregunta]
 
@@ -168,7 +175,8 @@ def playStep(id_pregunta, dic_pasos, dic_respuestas, id_juego_actual):
         idx += 1
 
     texto += "\n0) Save & Continue\n-1) Save & Exit"
-    opciones_validas.append(0, -1)
+    opciones_validas.append(0)
+    opciones_validas.append(-1)
 
     eleccion = getOpt(texto, "Option: ", opciones_validas)
 
@@ -213,7 +221,9 @@ def get_first_step_adventure():
     Enceuntra el primer paso y ejecuta el bucle del juego.
     """
 
-    pasos = get_first_step_adventure()
+    from app import aventura_elegida
+
+    pasos = get_id_bystep_adventure()
     respuestas = get_answers_bystep_adventure()
 
     cursor = conexion.cursor()
