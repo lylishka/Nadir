@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <meta name="description" content="Contacta amb l'equip de Nadir">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols_Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="estils.css">
     <title>Contacte - Nadir</title>
@@ -15,8 +16,8 @@
     <header class="topnav">
         <div class="logo">
             <a href="index.html">
-                <img src="Galeria/nadir_logo.png" alt="nadir_logo.png">
-                <span class="logo-text">[NOM JOC]</span>
+                <img src="assets/img/logo.png" alt="Logo Nadir">
+                <span class="logo-text">Nadir</span>
             </a>
         </div>
         <label for="menu-toggle" class="menu-icon">
@@ -67,12 +68,13 @@
                         height="300" 
                         style="border:0;" 
                         allowfullscreen="" 
-                        loading="lazy">
+                        loading="lazy"
+                        title="Ubicació de Nadir a Barcelona">
                     </iframe>
                 </div>
             </section>
 
-            <!-- FORMULARI -->
+            <!-- FORMULARI AMB VALIDACIÓ REGEX -->
             <section class="contacte-form">
                 <h2>Envia'ns un missatge</h2>
                 <form id="formulari-contacte">
@@ -83,9 +85,10 @@
                             id="nom" 
                             name="nom" 
                             required
+                            placeholder="Joan García"
                             pattern="^[A-Za-zÀ-ÿ\s]{2,50}$"
                             title="El nom ha de tenir entre 2 i 50 caràcters (només lletres i espais)">
-                        <span class="error-message">El nom ha de tenir entre 2 i 50 caràcters</span>
+                        <span class="error-message">El nom ha de tenir entre 2 i 50 caràcters (només lletres)</span>
                     </div>
 
                     <div class="form-group">
@@ -95,9 +98,10 @@
                             id="telefon" 
                             name="telefon" 
                             required
+                            placeholder="+34 123 456 789"
                             pattern="^[+]?[0-9]{9,15}$"
                             title="Format: +34123456789 o 123456789">
-                        <span class="error-message">Format vàlid: +34123456789 o 123456789</span>
+                        <span class="error-message">Format vàlid: +34123456789 o 123456789 (9-15 dígits)</span>
                     </div>
 
                     <div class="form-group">
@@ -107,6 +111,7 @@
                             id="email" 
                             name="email" 
                             required
+                            placeholder="correu@exemple.com"
                             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                             title="Format: exemple@domini.com">
                         <span class="error-message">Format vàlid: exemple@domini.com</span>
@@ -119,6 +124,7 @@
                             name="missatge" 
                             rows="6" 
                             required
+                            placeholder="Escriu el teu missatge aquí..."
                             minlength="10"
                             maxlength="500"
                             title="El missatge ha de tenir entre 10 i 500 caràcters"></textarea>
@@ -139,16 +145,16 @@
         <div class="footer-content">
             <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
             <div class="social-links">
-                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Twitter" aria-label="Twitter">
                     <span class="material-symbols-outlined">close</span>
                 </a>
-                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram" aria-label="Instagram">
                     <span class="material-symbols-outlined">photo_camera</span>
                 </a>
-                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Facebook" aria-label="Facebook">
                     <span class="material-symbols-outlined">facebook</span>
                 </a>
-                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="TikTok" aria-label="TikTok">
                     <span class="material-symbols-outlined">music_note</span>
                 </a>
             </div>

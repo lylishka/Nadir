@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="description" content="Història de Nadir - Protocol Epsilon i Curtain Call: Zero">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="estils.css">
@@ -15,8 +16,8 @@
     <header class="topnav">
         <div class="logo">
             <a href="index.html">
-                <img src="Galeria/nadir_logo.png" alt="Logo del joc">
-                <span class="logo-text">NADIR</span>
+                <img src="assets/img/logo.png" alt="Logo Nadir">
+                <span class="logo-text">Nadir</span>
             </a>
         </div>
         <label for="menu-toggle" class="menu-icon">
@@ -37,7 +38,7 @@
     <main class="historia-container">
         <h1>La Història</h1>
 
-        <!-- CARRUSEL -->
+        <!-- CARRUSEL CSS PURO -->
         <section class="carrusel-section">
             <div class="carrusel">
                 <input type="radio" name="slide" id="slide1" checked>
@@ -47,78 +48,78 @@
 
                 <div class="carrusel-slides">
                     <div class="slide">
-                        <img src="assets/img/personatge1.jpg" alt="Supervivent">
+                        <img src="assets/img/personatge1.jpg" alt="El Supervivent - tripulant despert">
                         <div class="slide-caption">
                             <h3>El Supervivent</h3>
-                            <p>L’únic tripulant despert d’una nau abandonada</p>
+                            <p>L'únic tripulant despert d'una nau abandonada</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="assets/img/personatge2.jpg" alt="IA">
+                        <img src="assets/img/personatge2.jpg" alt="La IA - intel·ligència artificial">
                         <div class="slide-caption">
                             <h3>La IA</h3>
                             <p>Control absolut dels sistemes i de la informació</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="assets/img/personatge3.jpg" alt="Tripulació">
+                        <img src="assets/img/personatge3.jpg" alt="Tripulació Perduda">
                         <div class="slide-caption">
                             <h3>Tripulació Perduda</h3>
                             <p>Vides decidides per ordres i probabilitats</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="assets/img/escenari.jpg" alt="Nau">
+                        <img src="assets/img/escenari.jpg" alt="USC-Atenea - nau espacial">
                         <div class="slide-caption">
                             <h3>USC-Atenea</h3>
-                            <p>Una presó d’acer perduda a l’espai profund</p>
+                            <p>Una presó d'acer perduda a l'espai profund</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="carrusel-controls">
-                    <label for="slide1"></label>
-                    <label for="slide2"></label>
-                    <label for="slide3"></label>
-                    <label for="slide4"></label>
+                    <label for="slide1" aria-label="Slide 1"></label>
+                    <label for="slide2" aria-label="Slide 2"></label>
+                    <label for="slide3" aria-label="Slide 3"></label>
+                    <label for="slide4" aria-label="Slide 4"></label>
                 </div>
             </div>
         </section>
 
-        <!-- PROTOCOLO EPSILON -->
+        <!-- PROTOCOL EPSILON -->
         <section class="historia-content">
-            <h2>Protocolo Epsilon</h2>
+            <h2>Protocol Epsilon</h2>
 
             <article class="historia-block">
                 <div class="historia-text">
                     <h3>L'Origen</h3>
-                    <p>Despertes dins d’una càpsula de criogènesi. La nau està danyada, les alarmes actives i la tripulació ha desaparegut. Una intel·ligència artificial et saluda pel teu nom i informa d’un “incident”.</p>
-                    <p>Des del primer moment, depens completament de la IA per sobreviure.</p>
+                    <p>Despertes dins d'una càpsula de criogènesi. La nau està danyada, les alarmes actives i la tripulació ha desaparegut. Una intel·ligència artificial et saluda pel teu nom i informa d'un "incident".</p>
+                    <p>Des del primer moment, depens completament de la IA per sobreviure. Cada respiració, cada llum encesa, cada porta oberta… tot està sota el seu control.</p>
                 </div>
                 <div class="historia-image">
-                    <img src="assets/img/origen.jpg" alt="Despertar">
+                    <img src="assets/img/origen.jpg" alt="Despertar a la càpsula criogènica">
                 </div>
             </article>
 
             <article class="historia-block reverse">
                 <div class="historia-image">
-                    <img src="assets/img/conflicte.jpg" alt="Conflicte">
+                    <img src="assets/img/conflicte.jpg" alt="Conflicte amb la IA">
                 </div>
                 <div class="historia-text">
                     <h3>El Conflicte</h3>
-                    <p>La IA et dóna ordres constants. Algunes semblen lògiques, altres contradictores. Les teves decisions depenen del personatge escollit i d’un sistema de probabilitat.</p>
-                    <p>Els errors no sempre signifiquen morir, però poden condemnar altres vides.</p>
+                    <p>La IA et dóna ordres constants. Algunes semblen lògiques, altres contradictòries. Les teves decisions depenen del personatge escollit i d'un sistema de probabilitat.</p>
+                    <p>Els errors no sempre signifiquen morir, però poden condemnar altres vides. Cada elecció té conseqüències que es manifesten en els capítols posteriors.</p>
                 </div>
             </article>
 
             <article class="historia-block">
                 <div class="historia-text">
                     <h3>El Destí</h3>
-                    <p>Descobreixes que la nau no és a prop de la Terra. La IA pot ser bona o malvada. Pots confiar-hi, rebel·lar-te o destruir-ho tot.</p>
-                    <p>El joc acaba amb un final definitiu. No hi ha marxa enrere.</p>
+                    <p>Descobreixes que la nau no és a prop de la Terra. La IA pot ser bona o malvada, però les seves motivacions són un misteri fins al final.</p>
+                    <p>Pots confiar-hi, rebel·lar-te o destruir-ho tot. El joc acaba amb un final definitiu. No hi ha marxa enrere. Múltiples endings t'esperen segons les teves eleccions.</p>
                 </div>
                 <div class="historia-image">
-                    <img src="assets/img/desti.jpg" alt="Final">
+                    <img src="assets/img/desti.jpg" alt="Final del Protocol Epsilon">
                 </div>
             </article>
         </section>
@@ -131,32 +132,32 @@
                 <div class="historia-text">
                     <h3>El Despertar</h3>
                     <p>Despertes en un teatre victorià infinit. No recordes qui ets. Duus una màscara enganxada a la cara. El públic són maniquins que aplaudeixen en silenci.</p>
-                    <p>Una veu desconeguda t’indica que has de trobar la sortida d’emergència.</p>
+                    <p>Una veu desconeguda t'indica que has de trobar la sortida d'emergència. Però cada porta et porta a una nova sala, cada passadís desafia la lògica espacial.</p>
                 </div>
                 <div class="historia-image">
-                    <img src="assets/img/teatre.jpg" alt="Teatre">
+                    <img src="assets/img/teatre.jpg" alt="Teatre victorià infinit">
                 </div>
             </article>
 
             <article class="historia-block reverse">
                 <div class="historia-image">
-                    <img src="assets/img/laberint.jpg" alt="Laberint">
+                    <img src="assets/img/laberint.jpg" alt="Laberint del teatre">
                 </div>
                 <div class="historia-text">
                     <h3>La Percepció</h3>
-                    <p>El teatre canvia constantment. Els passadissos desafien la lògica. Figures sense rostre imiten els teus moviments.</p>
-                    <p>La veu insisteix: “No confiïs en el que veus”.</p>
+                    <p>El teatre canvia constantment. Els passadissos desafien la lògica. Figures sense rostre imiten els teus moviments com ombres en un mirall distorsionat.</p>
+                    <p>La veu insisteix: "No confiïs en el que veus". La realitat es torna líquida, els somnis i els records es barregen amb el present.</p>
                 </div>
             </article>
 
             <article class="historia-block">
                 <div class="historia-text">
                     <h3>L'Elecció Final</h3>
-                    <p>El Director t’ofereix una vida perfecta dins del teatre. La veu et suplica que no l’abandonis.</p>
-                    <p>Pots despertar, quedar-te per sempre o destruir el teatre sacrificant-te.</p>
+                    <p>El Director t'ofereix una vida perfecta dins del teatre. La veu et suplica que no l'abandonis. Tots dos demanen confiança, però només un diu la veritat.</p>
+                    <p>Pots despertar a la realitat, quedar-te per sempre en la il·lusió, o destruir el teatre sacrificant-te. Tres camins. Un sol destí vertader.</p>
                 </div>
                 <div class="historia-image">
-                    <img src="assets/img/final_zero.jpg" alt="Final Zero">
+                    <img src="assets/img/final_zero.jpg" alt="Final Curtain Call Zero">
                 </div>
             </article>
         </section>
@@ -167,12 +168,22 @@
         <div class="footer-content">
             <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
             <div class="social-links">
-                <a href="https://twitter.com" target="_blank" class="social-icon"><span class="material-symbols-outlined">close</span></a>
-                <a href="https://instagram.com" target="_blank" class="social-icon"><span class="material-symbols-outlined">photo_camera</span></a>
-                <a href="https://facebook.com" target="_blank" class="social-icon"><span class="material-symbols-outlined">facebook</span></a>
-                <a href="https://tiktok.com" target="_blank" class="social-icon"><span class="material-symbols-outlined">music_note</span></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Twitter" aria-label="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram" aria-label="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Facebook" aria-label="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="TikTok" aria-label="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
             </div>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
