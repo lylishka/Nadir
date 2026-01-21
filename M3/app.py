@@ -143,7 +143,12 @@ while not salir:
                 opc_pj = getOpt("", "Select Characters ID (or 0 to go back): ", list(character.keys()), {}, ["0"])
 
                 if opc_pj != 0:
+                    personaje_elegido = opc_pj
+
+                    id_juego_actual = setIdGame()
+
                     get_first_step_adventure()
+
                     
             else:
                 flg_01 = False

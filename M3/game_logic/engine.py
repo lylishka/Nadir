@@ -1,3 +1,4 @@
+from app import user_session
 import mysql.connector
 # python -m pip install mysql-connector-python
 
@@ -264,6 +265,36 @@ def conectar_db():
 # Validacion Global de Conexion
 conexion = conectar_db()
 
+def get_table(query):
+    """
+    Ejecuta una query y devuelve una tupla de tuplas.
+    La tupla[0] contiene los nombres de la columna.
+    """
+    
+    resultado = ()
+    cursor = conexion.cursor()
+    cursor.execute(query)
+
+    columnas = ()
+    descripciones = cursor.description
+    indice_col = 0
+    limites_cols = len(descripciones)
+
+    while indice_col < limites_cols:
+        columna_info = descripciones[indice_col]
+        nombre_col = columna_info[0]
+        columnas += (nombre_col,)
+        indice_col += 1
+    
+    resultado = (columnas,)
+
+    for fila in cursor:
+        resultado += (fila,)
+    
+    cursor.close()
+
+    return resultado
+    
 def getUsers():
     """
     Consulta la base de datos y genera un diccionario estructurado:
@@ -407,3 +438,25 @@ def getUsersIds():
     resultado = [nombres, ids]
 
     return resultado
+
+def getUserIdBySession(user):
+    """
+    Busca el id_usuario correspondiente al username utilizando getUsersIds.
+    """
+
+    lista_ids = getUsersIds()
+    nombres = lista_ids[0]
+    ids = lista_ids[1]
+
+    id_encontrado = 0
+    i = 0
+    limite = len(nombres)
+
+    while i < limite:
+        if nombres[i] == user_session:
+            id_encontrado = ids[i]
+        
+        i += 1
+    
+    return id_encontrado
+
