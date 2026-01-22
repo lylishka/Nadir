@@ -276,7 +276,7 @@ def getFormatedTable(queryTable,title=""):
 
     ancho_columna = (ancho_max - (num_columnas * 2)) // num_columnas
     medidas = [ancho_columna] * num_columnas
-    header = getHeadeForTableFromTuples(columnas, medidas, title)
+    resultado = getHeadeForTableFromTuples(columnas, medidas, title)
 
     for i in range(1, len(queryTable)):
         fila = queryTable[i]
@@ -321,7 +321,7 @@ def get_table(query):
     Ejecuta una query y devuelve una tupla de tuplas.
     La tupla[0] contiene los nombres de la columna.
     """
-    
+
     resultado = ()
     cursor = conexion.cursor()
     cursor.execute(query)
