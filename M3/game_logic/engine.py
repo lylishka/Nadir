@@ -248,7 +248,6 @@ def getTableFromDict(tuple_of_keys, weight_of_colums, dict_of_data):
     resultado = ""
 
     for id_game in dict_of_data:
-        valores = []
         
         ids = dict_of_data[id_game]
 
@@ -257,9 +256,42 @@ def getTableFromDict(tuple_of_keys, weight_of_colums, dict_of_data):
             valor = ids.get(key, "")
             texto.append(str(valor))
         
-        fila = getFormatedBodyColumns()
+        fila = getFormatedBodyColumns(texto, weight_of_colums, 2)
 
-# def getFormatedTable(queryTable,title=""):
+        if resultado == "":
+            resultado = fila
+        else:
+            resultado += "\n" + fila
+    
+    return resultado
+
+def getFormatedTable(queryTable,title=""):
+    """
+    Formatea una tupla de tuplas para mostrar una tabla con ancho 120.
+    """
+
+    ancho_max = 120
+    columnas = queryTable[0]
+    num_columnas = len(columnas)
+
+    ancho_columna = (ancho_max - (num_columnas * 2)) // num_columnas
+    medidas = [ancho_columna] * num_columnas
+    header = getHeadeForTableFromTuples(columnas, medidas, title)
+
+    for i in range(1, len(queryTable)):
+        fila = queryTable[i]
+        fila_str = []
+        for celda in fila:
+            celda = str(celda)
+            fila_str.append(celda)
+        
+        fila_resulta = getFormatedBodyColumns(fila_str, medidas, 2)
+
+        resultado += "\n" + fila_resulta + "\n"
+    
+    return resultado
+
+
 
 # CONEXIÓN A LA BASE DE DATOS
 
@@ -468,14 +500,10 @@ def getUserIdBySession(user):
     ids = lista_ids[1]
 
     id_encontrado = 0
-    i = 0
-    limite = len(nombres)
 
-    while i < limite:
+    for i in range(len(nombres)):
         if nombres[i] == user:
             id_encontrado = ids[i]
-        
-        i += 1
-    
+            
     return id_encontrado
 

@@ -29,17 +29,28 @@ def getChoices():
     
 def insertCurrentChoice(idGame, actual_id_setp, id_answer):
     """
-    Inserta cada elección individual en la tabal de pasos.
+    Inserta cada elección en la tabla de pasos.
     """
 
     from app import user_session
+
+    pasos = get_id_bystep_adventure()
+
+    es_final = 0
+    if actual_id_setp in pasos:
+        if pasos[actual_id_setp]["Final_Step"] == 1:
+            es_final = 1
+
 
     id_user = getUserIdBySession(user_session)
 
     cursor = conexion.cursor()
 
-    query = "INSERT INTO paso (id_juego, id_user, id_paso, id_opcion) VALUES (%s, %s, %s, %s)"
-    datos = (idGame, id_user, actual_id_setp, id_answer)
+    query = "INSERT INTO paso (id_juego, id_user, id_paso, id_opcion, es_final) "
+    query += "VALUES (%s, %s, %s, %s)"
+    query += "ON DUPLICATE KEY UPDATE id_opcion = %s, es_final = %s"
+
+    datos = (idGame, id_user, actual_id_setp, id_answer, es_final)
 
     cursor.execute(query, datos)
     conexion.commit()
@@ -53,40 +64,34 @@ def get_id_bystep_adventure():
     from app import aventura_elegida
 
     id_by_steps = {}
+
     query_preguntas = "SELECT id_pregunta, texto FROM pregunta WHERE id_aventura = " + str(aventura_elegida)
     datos_preguntas = get_table(query_preguntas)
 
-    i = 1
-    total_preguntas = len(datos_preguntas)
-
-    while i < total_preguntas:
-        fila = datos_preguntas[i]
-        id_pregunta = fila[0]
-        texto_pregunta = fila[1]
+    for i in range(1, len(datos_preguntas)):
+        id_pregunta = datos_preguntas[i][0]
+        texto_pregunta = datos_preguntas[i][1]
 
         query_opciones = "SELECT id_opcion FROM opcion WHERE id_pregunta_base = " + str(id_pregunta)
         datos_opciones = get_table(query_opciones)
 
         ids_opciones = ()
-        j = 1
-        total_opciones = len(datos_opciones)
-        while j < total_opciones:
+        
+        for j in range(1, len(datos_opciones)):
             id_opc_actual = datos_opciones[j][0]
             ids_opciones += (id_opc_actual,)
-            j += 1
         
-        es_final = 0
-        num_opciones = len(ids_opciones)
-        if num_opciones == 0:
-            es_final = 1
+        es_final = 1
+        
+        if len(ids_opciones) == 0:
+            es_final = 0
         
         id_by_steps[id_pregunta] = {
             "Description": texto_pregunta,
             "answers_in_step": ids_opciones,
             "Final_Step": es_final
         }
-
-        i += 1
+    
     
     return id_by_steps
 
@@ -100,119 +105,87 @@ def get_answers_bystep_adventure():
     idAnswers_ByStep_Adventure = {}
 
     # Query que une opcioness con sus preguntas filtrando por la aventura elegida.
-    query = "SELECT o.id_opcion, o.id_pregunta_base, o.texto, o.id_pregunta_final, "
-    query += "o.id_personaje_especifico, o.probabilidad_base, o.probabilidad_fuera_clas "
+    query = "SELECT o.id_opcion, o.id_pregunta_base, o.texto, o.id_pregunta_siguiente, "
+    query += "o.id_personaje_especifico, o.probabilidad_base, o.probabilidad_fuera_clase "
     query += "FROM opcion o JOIN pregunta p ON o.id_pregunta_base = p.id_pregunta "
     query += "WHERE p.id_pregunta = " + str(aventura_elegida)
 
     datos = get_table(query)
 
-    i = 1
-    total_respuestas = len(datos)
-    while i < total_respuestas:
+    for i in range(1, len(datos)):
         id_opc = datos[i][0]
         id_base = datos[i][1]
         clave = (id_opc, id_base)
 
         idAnswers_ByStep_Adventure[clave] = {
             "Description": datos[i][2],
-            "NexStep_Adventure": datos[i][3],
+            "Nexttep_Adventure": datos[i][3],
             "Resolution_Answer": datos[i][2],
             "pj_req": datos[i][4],
             "p_base": datos[i][5],
             "p_fuera": datos[i][6]
         }
 
-        i += 1
-
-        return idAnswers_ByStep_Adventure
+    return idAnswers_ByStep_Adventure
 
 def playStep(id_pregunta, dic_pasos, dic_respuestas, id_juego_actual):
     """
-    Gestiona la visualización y la selección aleatoria de opciones.
+    Muestra el paso actual, sus 5 opciones y gestiona la progresión o muerte.
     """
 
     from app import personaje_elegido
 
     paso = dic_pasos[id_pregunta]
-
-    print("\n" + "*" * ancho)
     texto_paso = paso["Description"]
-    print(texto_paso.center(ancho))
-    print("*" * ancho)
+    getHeader(texto_paso)
 
     es_paso_final = paso["Final_Step"]
     if es_paso_final == 1:
+        insertCurrentChoice(id_juego_actual, id_pregunta, 0)
         return 0
 
     ids_disponibles = paso["answers_in_step"]
-    num_total = len(ids_disponibles)
-
-    max_indice_random = num_total - 1
-
     presentar = []
-    usados = []
-    limite_opciones = 4
-    if num_total < 4:
-        limite_opciones = num_total
-
-    while len(presentar) < limite_opciones:
-        pos = random.randint(0, max_indice_random)
-        if pos not in usados:
-            usados.append(pos)
-            id_seleccionada = ids_disponibles[pos]
-            data = dic_respuestas[(id_seleccionada, id_pregunta)]
-            presentar.append((id_seleccionada, data))
-    
-    texto = ""
+    texto_opciones = ""
     opciones_validas = []
-    idx = 0
+    
+    for i in range(len(ids_disponibles)):
+        id_respuestas = ids_disponibles[i]
+        datos_respuestas = dic_respuestas[(id_respuestas, id_pregunta)]
+        presentar.append((id_respuestas, datos_respuestas))
 
-    while idx < len(presentar):
-        num = idx + 1
-        texto += str(num) + ")" + presentar[idx][1]["Description"] + "\n"
+        num = i + 1
+        texto_opciones += "{}) {}\n".format(num, datos_respuestas["Description"])
         opciones_validas.append(num)
-        idx += 1
 
-    texto += "\n0) Save & Continue\n-1) Save & Exit"
-    opciones_validas.append(0)
-    opciones_validas.append(-1)
+    texto_opciones += "\n6) Save & Exit to Menu"
+    opciones_validas.append(6)
 
-    eleccion = getOpt(texto, "Option: ", opciones_validas)
+    eleccion = getOpt(texto_opciones, "Option: ", opciones_validas)
 
-    if eleccion == -1:
-        print("\n" + "[!] Exiting and saving progress...".center(ancho))
+    if eleccion == 6:
+        insertCurrentChoice(id_juego_actual, id_pregunta, 0)
         return -1
+
+    id_opcion_elegida = presentar[eleccion - 1]
+    id_opcion_real = id_opcion_elegida[0]
+    datos_opcion = id_opcion_elegida[1]
+
+    insertCurrentChoice(id_juego_actual, id_pregunta, id_opcion_real)
     
-    if eleccion == 0:
-        print("\n" + "[!] OK Progress saved. Choose an action to continue: ".center(ancho))
-        resultado = playStep(id_pregunta, dic_pasos, dic_respuestas, id_juego_actual)
-        return resultado
-
-    id_paso = presentar["id_paso"]
-    id_opcion_elegida = presentar[eleccion -1][0]
-    info_opc = presentar[eleccion -1][1]
-
-    paso_registrar = (id_paso, id_opcion_elegida)
-    getChoices
-
-    insertCurrentChoice(id_juego_actual, id_paso, id_opcion_elegida)
-    
-    siguiente_paso = info_opc["NextStep_Adventure"]
-
-    pj_espefico = info_opc["pj_req"]
+    siguiente_paso = datos_opcion["NextStep_Adventure"]
+    pj_espefico = datos_opcion["pj_req"]
 
     if pj_espefico != 0 and pj_espefico != "":
-        proba_exito = info_opc["p_fuera"]
+        probabilidad = datos_opcion["p_fuera"]
 
-        if pj_espefico == personaje_elegido:
-            proba_exito = info_opc["p_base"]
+        if int(pj_espefico) == int(personaje_elegido):
+            probabilidad = datos_opcion["p_base"]
         
         tirada = random.randint(1, 100)
-
-        if tirada > proba_exito:
+        if tirada > probabilidad:
             print("Muerte")
-            siguiente_paso = 0
+            return 0
     
     return siguiente_paso
 
@@ -221,23 +194,74 @@ def get_first_step_adventure():
     Enceuntra el primer paso y ejecuta el bucle del juego.
     """
 
-    from app import aventura_elegida
+    from app import aventura_elegida, id_juego_actual
 
     pasos = get_id_bystep_adventure()
     respuestas = get_answers_bystep_adventure()
 
-    cursor = conexion.cursor()
-    query = "SELECT id_pregunta FROM pregunta FROM pregunta WHERE id_aventura = " + str(aventura_elegida)
+    query = "SELECT id_pregunta FROM pregunta_aventura WHERE id_aventura = {}".format(aventura_elegida)
     datos = get_table(query)
 
     id_actual = 0
     if len(datos) > 1:
         id_actual = datos[1][0]
     
-    while id_actual != 0:
-        id_actual = playStep(id_actual, pasos, respuestas)
+    while id_actual != 0 and id_actual != -1:
+        id_actual = playStep(id_actual, pasos, respuestas, id_juego_actual)
         input("Enter to continue... ")
 
-    cursor.close()
-
     return 1
+
+def replay(choices):
+    """
+    Reproduce una aventura paso a paso basándose en una tupla.
+    """
+
+    from app import aventura_elegida, id_juego_actual
+
+    pasos = get_id_bystep_adventure()
+    respuestas = get_answers_bystep_adventure()
+
+    elecciones = {}
+
+    for registro in choices:
+        id_pregunta = registro[0]
+        id_opcion = registro[1]
+        elecciones[id_pregunta] = id_opcion
+
+    id_actual = 0
+    if len(choices) > 0:
+        id_actual = choices[0][0]
+    
+    while id_actual != 0 and id_actual in elecciones:
+        paso = pasos[id_actual]
+        id_opcion_elegida = elecciones[id_actual]
+
+        getHeader(aventura_elegida)
+        print("\n" + paso["Description"] + "\n")
+
+        ids_disponibles = paso["answers_in_step"]
+        num_elegido = 0
+
+        contador = 1
+        for i in range(len(ids_disponibles)):
+            id_respuesta = ids_disponibles[i]
+            datos_respuestas = respuestas[(id_opcion_elegida, id_actual)]
+            print("{}) {}".format(contador, datos_respuestas["Description"]))
+
+            if id_respuesta == id_opcion_elegida:
+                num_elegido = i + 1
+            
+            contador += 1
+
+        datos_elegidos = respuestas[(id_opcion_elegida, id_actual)]
+        print("Chosen Option: {}".format(num_elegido))
+
+        id_actual = datos_elegidos["NextStep_Adventure"]
+
+        input("Enter to continue... ")
+
+    if id_actual != 0:
+        while id_actual != 0 and id_actual != -1:
+            id_actual = playStep(id_actual, pasos, respuestas, id_juego_actual)
+            input("Enter to continue... ")

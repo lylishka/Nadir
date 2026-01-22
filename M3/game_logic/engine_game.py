@@ -127,7 +127,7 @@ def getNextGameId():
     Calcula el ID más alto existente y le suma 1.
     """
 
-    ids_existentes = getIdGames
+    ids_existentes = getIdGames()
 
     max_id = 0
 
@@ -185,37 +185,6 @@ def getFormatedAnswers(idAnswer, text, lenLine, leftMargin):
     resultado_final = "{}) {}".format(idAnswer, resultado)
 
     return resultado_final
-
-def replay(choices):
-    """
-    Reproduce una aventura paso a paso basándose en una tupla.
-    """
-
-    from app import aventura_elegida
-
-    dic_pasos = get_id_bystep_adventure()
-    dic_respuestas = get_answers_bystep_adventure()
-
-    for paso in choices:
-        id_paso = paso[0]
-        id_opcion_elegida = paso[1]
-
-        id_pregunta = 0
-        for id_p in dic_pasos:
-            if dic_pasos[id_p]["id_paso"] == id_paso:
-                id_pregunta = id_p
-        
-        getHeader(aventura_elegida)
-
-        paso = dic_pasos[id_pregunta]
-        descripcion_paso = paso["Description"]
-        print("\n" + descripcion_paso.center(ancho))
-
-        respuesta = dic_respuestas[(id_opcion_elegida, id_pregunta)]
-        respuesta_final = respuesta["Description"]
-        print("\n" + getFormatedAnswers(id_opcion_elegida, respuesta_final, 60, 5))
-        
-        input("\n[ Enter to Continue... ]")
 
 def getReplayAdventures():
     """
