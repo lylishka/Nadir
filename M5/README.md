@@ -136,7 +136,7 @@ Con el túnel **funcionando**, puedes conectar con la base de datosde dos manera
 * **Usuario**: `nombre_usuario`
 * **Contraseña**: `tu_contraseña`
 
-### Ejecuciñon del Juego
+### Ejecución del Juego
 El código principal del juego se ecnuentra en la carpeta `M3` del repositorio. Para iniciarlo, ejecuta el archivo `app.py`:
 
    ```bash
