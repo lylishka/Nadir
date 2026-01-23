@@ -102,7 +102,7 @@ Una vez dentro del servidor remoto, instala y configura MySQL:
 
 ---
 
-## 🎮 Utilizción del proyecto
+## 🎮 Utilización del proyecto
 
 ### Gestiñon del Túnel de Datos
 Para comunicar el juego con la base de datos remota, abre el túnel.
