@@ -146,6 +146,6 @@ El código principal del juego se ecnuentra en la carpeta `M3` del repositorio. 
 ---
 
 ## 📧 Contacto de los autores
-* [drioscruz.25cf@iesesteveterradas.cat](maito:drioscruz.25cf@iesesteveterradas.cat)
-* [frodriguezgaleas01.cf@iesesteveterradas.cat](maito:frodriguezgaleas01.cf@iesesteveterradas.cat)
-* [promeroramos.25cf@iesesteveterradas.cat](maito:promeroramos.25cf@iesesteveterradas.cat)
+* [drioscruz.25cf@iesesteveterradas.cat](mailto:drioscruz.25cf@iesesteveterradas.cat)
+* [frodriguezgaleas01.cf@iesesteveterradas.cat](mailto:frodriguezgaleas01.cf@iesesteveterradas.cat)
+* [promeroramos.25cf@iesesteveterradas.cat](mailto:promeroramos.25cf@iesesteveterradas.cat)
