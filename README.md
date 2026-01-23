@@ -31,10 +31,10 @@ Todos los archivos necesarios para la configuración se encuentran en la carpeta
 ### Paso 0: Preparación deel Entorno
 Antes de empezar con los puntos principales, debes preparar tu sistema:
 
-1. **Si usas Windows**: * Descarga e instala **"Ubuntu"** desde la Microsoft Store.
+1. **Si usas Windows**: Descarga e instala **"Ubuntu"** desde la Microsoft Store.
    * Abre la terminal de Ubuntu y asegúrate de estar en el directorio home del usuario.
-2. **Si usuas Linux/macOS**:  * Abre tu terminal y sitúate en tu carpeta personal.
-3. **Mover archivos**: * Copia el contenido de la carpeta **`M1`** del repositorio en el **home (`$HOME`)** de tu usuario.
+2. **Si usuas Linux/macOS**: Abre tu terminal y sitúate en tu carpeta personal.
+3. **Mover archivos**: Copia el contenido de la carpeta **`M1`** del repositorio en el **home (`$HOME`)** de tu usuario.
 
 ### Paso 1: Configuración de Seguridad RSA
 El accesso al servidor se realiza mediante claves públicas.
