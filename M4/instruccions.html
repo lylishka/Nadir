@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <title>Instruccions - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo.jpg" alt="Logo Nadir">
+                <span class="logo-text">Nadir</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html" class="active"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
+                <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
+                <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="instruccions-container">
+        <h1>Instruccions del Joc</h1>
+
+        <!-- APARTAT INSTRUCCIONS -->
+        <section class="instruccions-section">
+            <h2>Com jugar</h2>
+            <div class="instruccio-grid">
+                <div class="instruccio-item">
+                    <div class="instruccio-text">
+                        <h3>1. Tria la teva aventura</h3>
+                        <p>Selecciona entre Protocol Epsilon (ciència-ficció) o Curtain Call: Zero (terror surrealista)</p>
+                    </div>
+                </div>
+                <div class="instruccio-item">
+                    <div class="instruccio-text">
+                        <h3>2. Escull el teu personatge</h3>
+                        <p>Cada personatge té habilitats úniques que afecten les probabilitats d'èxit de les teves accions</p>
+                    </div>
+                </div>
+                <div class="instruccio-item">
+                    <div class="instruccio-text">
+                        <h3>3. Llegeix amb atenció</h3>
+                        <p>La narrativa et presenta situacions crítiques. Cada paraula compta per entendre el context</p>
+                    </div>
+                </div>
+                <div class="instruccio-item">
+                    <div class="instruccio-text">
+                        <h3>4. Pren decisions</h3>
+                        <p>Tria entre opcions comunes o opcions exclusives del teu personatge per avançar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MECÀNIQUES DEL JOC -->
+        <section class="mecaniques-section">
+            <h2>Mecàniques del Joc</h2>
+            <div class="mecaniques-list">
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">account_tree</span>
+                    <div>
+                        <h3>Sistema de decisions ramificades</h3>
+                        <p>Cada elecció obre nous camins i tanca altres. La història canvia permanentment segons les teves accions</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">casino</span>
+                    <div>
+                        <h3>Sistema de probabilitat</h3>
+                        <p>Les accions dins la teva especialitat tenen èxit alt. Les accions fora de la teva especialitat poden fallar o tenir conseqüències greus</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">groups</span>
+                    <div>
+                        <h3>Opcions exclusives per personatge</h3>
+                        <p>Només el teu personatge pot accedir a certes opcions. L'Enginyer repara, el Metge cura, el Soldat combat</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">alt_route</span>
+                    <div>
+                        <h3>Múltiples finals</h3>
+                        <p>Protocol Epsilon té 3 finals possibles. Curtain Call: Zero també té 3 finals. El teu destí depèn de les teves decisions</p>
+                    </div>
+                </div>
+                <div class="mecanica-detail">
+                    <span class="material-symbols-outlined">block</span>
+                    <div>
+                        <h3>Sense punts de guardada</h3>
+                        <p>Les decisions són permanents. Un cop acabat el joc, no pots tornar enrere. Cada partida és única i definitiva</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TARJETES INTERACTIVES amb MOUSEOVER -->
+        <section class="controls-section">
+            <h2>Característiques de les Aventures</h2>
+            <div class="cards-interactive">
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        <h3>Protocol Epsilon</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Ciència-ficció. Nau espacial. IA misteriosa. 4 personatges jugables. 3 finals possibles. Confia en la màquina o mor intentant-ho.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">theater_comedy</span>
+                        <h3>Curtain Call: Zero</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Terror surrealista. Teatre infinit. Realitat i ficció es confonen. 3 personatges. 3 finals. Desperta o queda't per sempre.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">percent</span>
+                        <h3>Probabilitats</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Les accions dins la teva especialitat tenen èxit garantit. Fora d'ella, pots fallar i obrir noves rutes narratives.</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="card-front">
+                        <span class="material-symbols-outlined">tips_and_updates</span>
+                        <h3>Consells</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Llegeix amb atenció. Pensa bé abans de decidir. No hi ha marxa enrere. Cada partida és definitiva i única.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

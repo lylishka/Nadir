@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="estils.css">
+    <title>Usuaris - Nadir</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- HEADER -->
+    <header class="topnav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo.jpg" alt="Logo Nadir">
+                <span class="logo-text">Nadir</span>
+            </a>
+        </div>
+        <label for="menu-toggle" class="menu-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span>Inici</a></li>
+                <li><a href="instruccions.html"><span class="material-symbols-outlined">menu_book</span>Instruccions</a></li>
+                <li><a href="historia.html"><span class="material-symbols-outlined">history_edu</span>Història</a></li>
+                <li><a href="contacte.html"><span class="material-symbols-outlined">mail</span>Contacte</a></li>
+                <li><a href="nosotros.html"><span class="material-symbols-outlined">group</span>About Us</a></li>
+                <li><a href="usuaris_sistemes.html" class="active"><span class="material-symbols-outlined">person</span>Usuaris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="usuaris-container">
+        <h1>Tria el teu personatge</h1>
+        <p class="subtitol">Cada personatge té habilitats úniques que afecten les probabilitats d'èxit</p>
+
+        <!-- PROTOCOL EPSILON -->
+        <section>
+            <h2 style="text-align: center; color: var(--accent); margin: 3rem 0 2rem;">Protocol Epsilon</h2>
+            <div class="usuaris-grid">
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">engineering</span>
+                    </div>
+                    <h3>L'Enginyer</h3>
+                    <p class="usuari-rol">Especialista Tècnic</p>
+                    <p class="usuari-descripcio">Reparacions, sistemes elèctrics i accés tècnic. Pot reparar motors, reiniciar sistemes i accedir a conductes tècnics.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Accions tècniques<br><strong>Risc:</strong> Medicina i combat</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">medical_services</span>
+                    </div>
+                    <h3>El Metge</h3>
+                    <p class="usuari-rol">Especialista Mèdic</p>
+                    <p class="usuari-descripcio">Curació, anàlisi biològic i detecció d'anomalies. Pot curar tripulants, analitzar criatures i crear antídots.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Accions mèdiques<br><strong>Risc:</strong> Tècnica i combat</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">shield</span>
+                    </div>
+                    <h3>El Soldat</h3>
+                    <p class="usuari-rol">Especialista en Combat</p>
+                    <p class="usuari-descripcio">Combat, defensa i seguretat. Pot usar armes, assegurar zones i enfrontar amenaces directes amb alta eficàcia.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Combat<br><strong>Risc:</strong> Tècnica i medicina</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">military_tech</span>
+                    </div>
+                    <h3>El Comandant</h3>
+                    <p class="usuari-rol">Equilibrat</p>
+                    <p class="usuari-descripcio">Tècnic, mèdic i combat medis. Pot realitzar accions de tots els personatges amb èxit moderat. Ideal per camins alternatius.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit:</strong> Moderat en tot<br><strong>Avantatge:</strong> Flexibilitat total</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURTAIN CALL: ZERO -->
+        <section style="margin-top: 5rem;">
+            <h2 style="text-align: center; color: var(--accent); margin: 3rem 0 2rem;">Curtain Call: Zero</h2>
+            <div class="usuaris-grid">
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">theater_comedy</span>
+                    </div>
+                    <h3>L'Actor</h3>
+                    <p class="usuari-rol">Mestre del Fingiment</p>
+                    <p class="usuari-descripcio">Capacitat de fingir emocions i enganyar personatges. Pot canviar de màscara per accedir a zones VIP i imitar veus.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Interaccions socials<br><strong>Risc:</strong> Pèrdua de cordura</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">music_note</span>
+                    </div>
+                    <h3>La Violinista</h3>
+                    <p class="usuari-rol">Oïda Absoluta</p>
+                    <p class="usuari-descripcio">Capaç de detectar trampes pel soroll. Pot resoldre puzzles musicals i hipnotitzar enemics amb la seva música.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Puzzles i sigil<br><strong>Risc:</strong> Confrontació física</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+
+                <div class="usuari-card">
+                    <div class="usuari-avatar">
+                        <span class="material-symbols-outlined">handyman</span>
+                    </div>
+                    <h3>L'Escenògraf</h3>
+                    <p class="usuari-rol">Coneixedor del Teatre</p>
+                    <p class="usuari-descripcio">Coneix els secrets del teatre i els mecanismes ocults. Pot derribar murs falsos, manipular politges i crear trampes.</p>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-top: 1rem;"><strong>Èxit alt:</strong> Accions físiques<br><strong>Risc:</strong> Situacions místiques</p>
+                    <button class="btn-seleccionar">Seleccionar</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="info-adicional">
+            <div class="info-box">
+                <span class="material-symbols-outlined">info</span>
+                <p>Cada personatge ofereix una experiència única amb opcions exclusives i probabilitats diferents d'èxit. Les teves decisions i el personatge escollit determinaran el final que obtindràs.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright &copy; 2026 Nadir - Tots els drets reservats</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <span class="material-symbols-outlined">facebook</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                    <span class="material-symbols-outlined">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
